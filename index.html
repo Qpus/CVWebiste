@@ -56,16 +56,18 @@
       </div>
 
       <!-- .nav-menu -->
-      <nav id="navbar" class="nav-menu navbar"> 
+      <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="fa-solid fa-house-user"></i>
               <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="fa-solid fa-user"></i> <span>About</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="fa-solid fa-folder"></i> <span>Resume</span></a>
           </li>
+          <li><a href="#projects" class="nav-link scrollto"><i class="fa-solid fa-diagram-project"></i>
+              <span>Project</span></a>
           <li><a href="mailto:hello@aleksandargrubic.com" class="nav-link"><i class="fa fa-envelope"></i>
               <span>Contact</span></a></li>
-          <li><a href="#projects" class="nav-link scrollto"><i class="fa-solid fa-diagram-project"></i> <span>Project</span></a>
+
           </li>
         </ul>
       </nav>
@@ -200,6 +202,62 @@
       </div>
     </section>
     <!-- End Resume Section -->
+
+    <!-- ======= Projects Section ======= -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <img class="card-img-bottom" src="img/project-img.png" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h4 class="card-title">My Website</h4>
+                <p class="card-text">I managed in 6 simple steps to "push up" my website and share it to the world.</p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">My website in details.</h4>
+          </div>
+          <div class="modal-body">
+            <ol>
+              <li>First, I registered a domain name for my website using AWS Route 53. This allowed me to create a
+                custom URL for my website and to manage its DNS settings.</li>
+              <li>Next, I created an S3 bucket to store the static content for my website, such as HTML, CSS, and
+                JavaScript files. I configured the bucket to host a static website and set up appropriate permissions to
+                allow users to access the website.</li>
+              <li>I then used CloudFront to create a content delivery network (CDN) for my website. This allowed me to
+                distribute the content of my website to multiple edge locations around the world, providing faster
+                access for users and reducing the load on the S3 bucket.</li>
+              <li>To make the website more secure and reliable, I used AWS Certificate Manager to create a free SSL/TLS
+                certificate for my domain. This allowed me to use HTTPS to encrypt traffic to and from the website,
+                ensuring that the website and its users are protected from man-in-the-middle attacks.</li>
+              <li>Finally, I setup GitHub Action script to watch my github repo for any changes. If it comes to update
+                it checks and serves it to S3 bucket.</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
