@@ -223,21 +223,46 @@
           <h2>Projects</h2>
         </div>
         <div class="row">
+          <!-- project -->
           <div class="col-lg-4">
             <div class="card">
               <img class="card-img-bottom" src="img/project-img.png" alt="Card image" style="width:100%">
               <div class="card-body">
                 <h4 class="card-title">Portfolio</h4>
-                <p class="card-text">I managed in 5 simple steps to share my portfolio to the world.</p>
-                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Details</a>
+                <p class="card-text">I managed in 5 simple steps to share my portfolio to the world.</br>
+
+                </p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#portfolio">Details</a>
+              </div>
+            </div>
+          </div>
+          <!-- project -->
+          <div class="col-lg-4">
+            <div class="card">
+              <img class="card-img-bottom" src="img/t4kt286emqex1jsts6k2.webp" alt="Card image" style="width:100%;" >
+              <div class="card-body">
+                <h4 class="card-title">Automation Scripts</h4>
+                <p class="card-text">Using Vagrant script to run any website template on your local virtual machine or WordPress local setup environment.</p>
+                <a href="https://github.com/Qpus/DevOps/tree/main/Vagrant/IAAC" class="btn btn-warning">Link</a>
+              </div>
+            </div>
+          </div>
+          <!-- project -->
+          <div class="col-lg-4">
+            <div class="card">
+              <img class="card-img-bottom" src="img/Untitled.png" alt="Card image" style="width:100%; " >
+              <div class="card-body">
+                <h4 class="card-title">Full Stack React App</h4>
+                <p class="card-text">Using Vagrant script to run any website template on your local virtual machine or WordPress local setup environment.</p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#fullstack">Details</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+    <!-- Modal portfolio-->
+    <div id="portfolio" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -269,8 +294,30 @@
       </div>
     </div>
 
+    <!-- Modal react fullstack app-->
+    <div id="fullstack" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
-
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Full Stack React App with API and Postgress as Database</h4>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <li>Uploaded React Frontend build object to S3 Bucket and make it private. </li>
+              <li>Setup policy for CloudFront to access those files and serve them trough custom domain.</li>
+              <li>Containerized API with database and uploaded Docker image to Docker Hub,</li> 
+              <li>Then created EC2 instance and installed required dependencies so I can download and run previously created Docker image and connect.</li>
+              <li>Working on implementing AWS tools such as ECS, RDS, ALB, VPC and ECR and GitHub Action as CI/CD pipeline.</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
