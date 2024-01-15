@@ -61,7 +61,9 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto"><i class="fa-solid fa-house-user"></i>
               <span>Home</span></a></li>
-        <!--  <li><a href="#about" class="nav-link scrollto"><i class="fa-solid fa-user"></i> <span>About</span></a></li> -->
+          <!--  <li><a href="#about" class="nav-link scrollto"><i class="fa-solid fa-user"></i> <span>About</span></a></li> -->
+          <li><a href="#certification" class="nav-link scrollto"><i class="fa-solid fa-file-circle-check"></i> <span>Certificates</span></a>
+          </li>
           <li><a href="#resume" class="nav-link scrollto"><i class="fa-solid fa-folder"></i> <span>Resume</span></a>
           </li>
           <li><a href="#projects" class="nav-link scrollto"><i class="fa-solid fa-diagram-project"></i>
@@ -79,12 +81,81 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <a href="CV/Aleksandar Grubic CV.pdf" target="_blank"><h1>Aleksandar Grubić</h1></a>
+      <a href="CV/Aleksandar Grubic CV.pdf" target="_blank">
+        <h1>Aleksandar Grubić</h1>
+      </a>
       <p> I'm <span class="typed" data-typed-items="DevOps Engineer"></span></p>
     </div>
   </section><!-- End Hero -->
 
   <main id="main">
+    <!-- ======= Certification Section ======= -->
+    <section id="certification" class="docker1">
+      <div class="container">
+        <div class="section-title">
+          <h2>Certification</h2>
+        </div>
+        <div class="row">
+          <!-- certificate -->
+          <div class="col-lg-4">
+            <div class="card">
+              <img class="card-img-bottom" src="img/UC-2b16848d-bc81-49ee-9e2a-398294cc1b27.jpg" alt="Card image"
+                style="width:100%">
+              <div class="card-body">
+                <h4 class="card-title">Docker & Kubernetes: The Practical Guide [2024 Edition]</h4>
+                <p class="card-text">Learn Docker, Docker Compose, Multi-Container Projects, Deployment and all about
+                  Kubernetes from the ground up!</br></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#docker">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal certification-->
+    <div id="docker" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Docker & Kubernetes: The Practical Guide [2024 Edition]</h4>
+          </div>
+          <div class="modal-body">
+            <p>In detail, this course includes the following topics:</p>
+            <ul>
+              <li>A thorough introduction to Docker, containers and why you might want to use Docker</li>
+              <li>Detailed setup instructions for macOS and Windows</li>
+              <li>A deep-dive into the core concepts you need to know: Containers & images</li>
+              <li>Learn how to create custom images, use existing images and how to run containers based on such images
+              </li>
+              <li>Get a detailed overview of the core commands you need when working with Docker</li>
+              <li>Learn how to work with data and how to persist data with volumes</li>
+              <li>Explore container networking - with the outside world and between multiple containers</li>
+              <li>Learn how to work with both single and multi-container projects</li>
+              <li>In-depth deployment instructions: Manual deployment and deployment with managed services like AWS ECS
+              </li>
+              <li>Understand Kubernetes core concepts & architecture</li>
+              <li>Learn how to create Kubernetes resources, deployments, services and how to run your containers with
+                Kubernetes</li>
+              <li>Dive deeply into working with data in Kubernetes projects - with different types of volumes</li>
+              <li>Kubernetes networking and DNS service discovery</li>
+              <li>Learn how to deploy your Kubernetes project (at the example of AWS EKS)</li>
+              <li>And much more!</li>
+              <li><a href="https://www.udemy.com/course/docker-kubernetes-the-practical-guide/">Click here for details!</a></li>
+              <li><a target="_blank" href="certificates/UC-2b16848d-bc81-49ee-9e2a-398294cc1b27.pdf" ><u>Docker & Kubernetes Certificate.pdf</u></a></li>
+
+              </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Certification -->
     <section id="resume" class="resume">
       <div class="container">
         <div class="section-title">
@@ -97,11 +168,12 @@
               <h4>DevOps</h4>
               <p><em>AWS</em></p>
               <p>Installing and configuring EC2 machines, creating Elastic Block Storage,
-                creating EBS snapshots, ELB, Auto Scaling Group, Amazon WorkMail, Route 53, S3 bucket, CloudFront, Certificate Manager</p>
+                creating EBS snapshots, ELB, Auto Scaling Group, Amazon WorkMail, Route 53, S3 bucket, CloudFront,
+                Certificate Manager</p>
               <!-- <p><em>Terraform</em></p> 
               <p>Granting access to aws profile, create VPC, setup internet gateway, creating security
                 group, assign elastic IP and creating server with apache2</p>-->
-              
+
               <p>Tech Skills:</p>
               <ul>
                 <li><em>Linux</em></li>
@@ -127,7 +199,7 @@
               <p><em>Technical High School, Kikinda</em></p>
             </div>
           </div>
-          
+
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Professional Experience</h3>
             <div class="resume-item">
@@ -199,21 +271,24 @@
           <!-- project -->
           <div class="col-lg-4">
             <div class="card">
-              <img class="card-img-bottom" src="img/t4kt286emqex1jsts6k2.webp" alt="Card image" style="width:100%;" >
+              <img class="card-img-bottom" src="img/t4kt286emqex1jsts6k2.webp" alt="Card image" style="width:100%;">
               <div class="card-body">
                 <h4 class="card-title">Automation Scripts</h4>
-                <p class="card-text">Using Vagrant script to run any website template on your local virtual machine or WordPress local setup environment.</p>
-                <a href="https://github.com/Qpus/DevOps/tree/main/Vagrant/IAAC" target="_blank" class="btn btn-warning">Link</a>
+                <p class="card-text">Using Vagrant script to run any website template on your local virtual machine or
+                  WordPress local setup environment.</p>
+                <a href="https://github.com/Qpus/DevOps/tree/main/Vagrant/IAAC" target="_blank"
+                  class="btn btn-warning">Link</a>
               </div>
             </div>
           </div>
           <!-- project -->
           <div class="col-lg-4">
             <div class="card">
-              <img class="card-img-bottom" src="img/Untitled.png" alt="Card image" style="width:100%; " >
+              <img class="card-img-bottom" src="img/Untitled.png" alt="Card image" style="width:100%; ">
               <div class="card-body">
                 <h4 class="card-title">Full Stack React App</h4>
-                <p class="card-text">Using Vagrant script to run any website template on your local virtual machine or WordPress local setup environment.</p>
+                <p class="card-text">Using Vagrant script to run any website template on your local virtual machine or
+                  WordPress local setup environment.</p>
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#fullstack">Details</a>
               </div>
             </div>
@@ -267,9 +342,11 @@
             <ul>
               <li>Uploaded React Frontend build object to S3 Bucket and make it private. </li>
               <li>Setup policy for CloudFront to access those files and serve them trough custom domain.</li>
-              <li>Containerized API with database and uploaded Docker image to Docker Hub,</li> 
-              <li>Then created EC2 instance and installed required dependencies so I can download and run previously created Docker image and connect.</li>
-              <li>Working on implementing AWS tools such as ECS, RDS, ALB, VPC and ECR and GitHub Action as CI/CD pipeline.</li>
+              <li>Containerized API with database and uploaded Docker image to Docker Hub,</li>
+              <li>Then created EC2 instance and installed required dependencies so I can download and run previously
+                created Docker image and connect.</li>
+              <li>Working on implementing AWS tools such as ECS, RDS, ALB, VPC and ECR and GitHub Action as CI/CD
+                pipeline.</li>
             </ul>
           </div>
           <div class="modal-footer">
@@ -278,7 +355,8 @@
         </div>
       </div>
     </div>
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="fa-solid fa-arrow-up"></i></a>
