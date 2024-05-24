@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #000;
+    --button-background: #fff;
+    --button-text-color: #000;
+}
+
+.dark-theme {
+    --background-color: #333;
+    --text-color: #fff;
+    --button-background: #444;
+    --button-text-color: #fff;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-container {
+    text-align: center;
+    background-color: var(--button-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.score-container {
+    text-align: center;
+    background-color: var(--button-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+}
+
+#best-scores {
+    list-style: none;
+    padding: 0;
+}
+
+#best-scores li {
+    background: var(--button-background);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Theme switch styles */
+.theme-switch {
+    
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 20px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
