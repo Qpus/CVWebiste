@@ -70,7 +70,7 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("http://your-home-server-ip:3000/get-scores") // Replace 'your-home-server-ip' with your home server's IP address
+  fetch("http://localhost:3000/get-scores") // Replace 'your-home-server-ip' with your home server's IP address
     .then((response) => response.json())
     .then((data) => {
       bestScoresList.innerHTML = "";
