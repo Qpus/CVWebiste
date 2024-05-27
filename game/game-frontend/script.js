@@ -45,14 +45,13 @@ function startGame() {
       } else {
         alert("Please enter your name to save your score.");
       }
-      newGameButton.style.display = "block";
+      newGameButton.style.visibility = "visible";
     }
   }, 1000);
 }
 
 function saveScore(name, score) {
-  fetch("http://your-home-server-ip:3000/save-score", {
-    // Replace 'your-home-server-ip' with your home server's IP address
+  fetch("http://192.168.0.18:3000/save-score", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +69,7 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("http://localhost:3000/get-scores") // Replace 'your-home-server-ip' with your home server's IP address
+  fetch("http://192.168.0.18:3000/get-scores")
     .then((response) => response.json())
     .then((data) => {
       bestScoresList.innerHTML = "";
@@ -95,7 +94,7 @@ function startNewGame() {
   timeDisplay.textContent = timeLeft;
   clickButton.disabled = true;
   playerNameInput.value = "";
-  newGameButton.style.display = "none";
+  newGameButton.style.visibility = "hidden";
   fetchScores();
 }
 
