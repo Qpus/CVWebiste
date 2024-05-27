@@ -51,7 +51,7 @@ function startGame() {
 }
 
 function saveScore(name, score) {
-  fetch("http://192.168.0.18:3000/save-score", {
+  fetch("http://172.31.30.144:3000/save-score", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -69,7 +69,7 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("http://192.168.0.18:3000/get-scores")
+  fetch("http://172.31.30.144:3000/get-scores")
     .then((response) => response.json())
     .then((data) => {
       bestScoresList.innerHTML = "";
