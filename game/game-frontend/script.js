@@ -11,11 +11,7 @@ const playerNameInput = document.getElementById("player-name");
 const themeToggle = document.getElementById("theme-toggle");
 
 playerNameInput.addEventListener("input", () => {
-  if (playerNameInput.value.trim()) {
-    clickButton.disabled = false;
-  } else {
-    clickButton.disabled = true;
-  }
+  clickButton.disabled = !playerNameInput.value.trim();
 });
 
 clickButton.addEventListener("click", () => {
@@ -38,6 +34,7 @@ function startGame() {
       timeDisplay.textContent = timeLeft;
     } else {
       clearInterval(timer);
+      timer = null; // Reset timer variable
       const playerName = playerNameInput.value.trim();
       if (playerName) {
         saveScore(playerName, score);
@@ -46,19 +43,25 @@ function startGame() {
         alert("Please enter your name to save your score.");
       }
       newGameButton.style.visibility = "visible";
+      clickButton.disabled = true; // Disable click button after game ends
     }
   }, 1000);
 }
 
 function saveScore(name, score) {
-  fetch("http://3.93.200.111:3000/save-score", {
+  fetch("http://54.236.69.156:3000/save-score", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name: name, score: score }),
+    body: JSON.stringify({ name, score }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
     .then((data) => {
       console.log("Score saved:", data);
       fetchScores();
@@ -69,8 +72,13 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("http://3.93.200.111:3000/get-scores")
-    .then((response) => response.json())
+  fetch("http://54.236.69.156:3000/get-scores")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
     .then((data) => {
       bestScoresList.innerHTML = "";
       data.forEach((scoreItem, index) => {
@@ -89,6 +97,7 @@ function fetchScores() {
 function startNewGame() {
   score = 0;
   timeLeft = 10;
+  clearInterval(timer); // Clear any existing timer
   timer = null;
   scoreDisplay.textContent = score;
   timeDisplay.textContent = timeLeft;
