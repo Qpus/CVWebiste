@@ -49,7 +49,7 @@ function startGame() {
 }
 
 function saveScore(name, score) {
-  fetch("http://54.236.69.156:3000/save-score", {
+  fetch("https://54.236.69.156:3000/save-score", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -72,7 +72,7 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("http://54.236.69.156:3000/get-scores")
+  fetch("https://54.236.69.156:3000/get-scores")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
