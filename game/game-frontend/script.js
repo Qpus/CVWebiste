@@ -8,7 +8,6 @@ const timeDisplay = document.getElementById("time");
 const bestScoresList = document.getElementById("best-scores");
 const newGameButton = document.getElementById("new-game-button");
 const playerNameInput = document.getElementById("player-name");
-const themeToggle = document.getElementById("theme-toggle");
 
 playerNameInput.addEventListener("input", () => {
   clickButton.disabled = !playerNameInput.value.trim();
@@ -25,7 +24,6 @@ clickButton.addEventListener("click", () => {
 });
 
 newGameButton.addEventListener("click", startNewGame);
-themeToggle.addEventListener("change", toggleTheme);
 
 function startGame() {
   timer = setInterval(() => {
@@ -121,10 +119,6 @@ function startNewGame() {
   playerNameInput.value = "";
   newGameButton.style.visibility = "hidden";
   fetchScores();
-}
-
-function toggleTheme() {
-  document.body.classList.toggle("dark-theme");
 }
 
 fetchScores();
