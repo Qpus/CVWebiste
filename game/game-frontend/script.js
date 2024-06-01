@@ -51,29 +51,6 @@ function startGame() {
 function saveScore(name, score) {
   fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, score }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Score saved:", data);
-      fetchScores();
-    })
-    .catch((error) => {
-      console.error("Error saving score:", error);
-    });
-}
-
-function fetchScores() {
-  fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
-    method: "POST",
     mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
@@ -88,7 +65,13 @@ function fetchScores() {
     .catch((error) => {
       console.error("Error:", error);
     });
-  // fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/get-scores")
+  // fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ name, score }),
+  // })
   //   .then((response) => {
   //     if (!response.ok) {
   //       throw new Error("Network response was not ok " + response.statusText);
@@ -96,18 +79,35 @@ function fetchScores() {
   //     return response.json();
   //   })
   //   .then((data) => {
-  //     bestScoresList.innerHTML = "";
-  //     data.forEach((scoreItem, index) => {
-  //       const li = document.createElement("li");
-  //       li.textContent = `#${index + 1}: ${scoreItem.name} - ${
-  //         scoreItem.score
-  //       } - ${scoreItem.date}`;
-  //       bestScoresList.appendChild(li);
-  //     });
+  //     console.log("Score saved:", data);
+  //     fetchScores();
   //   })
   //   .catch((error) => {
-  //     console.error("Error fetching scores:", error);
+  //     console.error("Error saving score:", error);
   //   });
+}
+
+function fetchScores() {
+  fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/get-scores")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      bestScoresList.innerHTML = "";
+      data.forEach((scoreItem, index) => {
+        const li = document.createElement("li");
+        li.textContent = `#${index + 1}: ${scoreItem.name} - ${
+          scoreItem.score
+        } - ${scoreItem.date}`;
+        bestScoresList.appendChild(li);
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching scores:", error);
+    });
 }
 
 function startNewGame() {
