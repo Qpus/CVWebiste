@@ -49,7 +49,7 @@ function startGame() {
 }
 
 function saveScore(name, score) {
-  fetch("ec2-35-173-128-174.compute-1.amazonaws.com:3000/save-score", {
+  fetch("http://c2-35-173-128-174.compute-1.amazonaws.com:3000/save-score", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -72,7 +72,7 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("ec2-35-173-128-174.compute-1.amazonaws.com:3000/get-scores")
+  fetch("http://ec2-35-173-128-174.compute-1.amazonaws.com:3000/get-scores")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
