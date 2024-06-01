@@ -49,40 +49,24 @@ function startGame() {
 function saveScore(name, score) {
   fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
     method: "POST",
-    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ score: 100 }),
+    body: JSON.stringify({ name, score }),
   })
     .then((response) => {
-      console.log(
-        "Request sent, but no response data available in no-cors mode."
-      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Score saved:", data);
+      fetchScores();
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error("Error saving score:", error);
     });
-  // fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({ name, score }),
-  // })
-  //   .then((response) => {
-  //     if (!response.ok) {
-  //       throw new Error("Network response was not ok " + response.statusText);
-  //     }
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     console.log("Score saved:", data);
-  //     fetchScores();
-  //   })
-  //   .catch((error) => {
-  //     console.error("Error saving score:", error);
-  //   });
 }
 
 function fetchScores() {
