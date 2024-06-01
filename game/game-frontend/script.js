@@ -85,7 +85,7 @@ function fetchScores() {
         const li = document.createElement("li");
         li.textContent = `#${index + 1}: ${scoreItem.name} - ${
           scoreItem.score
-        }`;
+        } - ${scoreItem.date}`;
         bestScoresList.appendChild(li);
       });
     })
