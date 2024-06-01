@@ -49,7 +49,7 @@ function startGame() {
 }
 
 function saveScore(name, score) {
-  fetch("http://c2-35-173-128-174.compute-1.amazonaws.com:3000/save-score", {
+  fetch("http://ec2-35-173-128-174.compute-1.amazonaws.com:3000/save-score", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
