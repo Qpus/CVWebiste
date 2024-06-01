@@ -72,26 +72,42 @@ function saveScore(name, score) {
 }
 
 function fetchScores() {
-  fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/get-scores")
+  fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ score: 100 }),
+  })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      bestScoresList.innerHTML = "";
-      data.forEach((scoreItem, index) => {
-        const li = document.createElement("li");
-        li.textContent = `#${index + 1}: ${scoreItem.name} - ${
-          scoreItem.score
-        } - ${scoreItem.date}`;
-        bestScoresList.appendChild(li);
-      });
+      console.log(
+        "Request sent, but no response data available in no-cors mode."
+      );
     })
     .catch((error) => {
-      console.error("Error fetching scores:", error);
+      console.error("Error:", error);
     });
+  // fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/get-scores")
+  //   .then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok " + response.statusText);
+  //     }
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     bestScoresList.innerHTML = "";
+  //     data.forEach((scoreItem, index) => {
+  //       const li = document.createElement("li");
+  //       li.textContent = `#${index + 1}: ${scoreItem.name} - ${
+  //         scoreItem.score
+  //       } - ${scoreItem.date}`;
+  //       bestScoresList.appendChild(li);
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error fetching scores:", error);
+  //   });
 }
 
 function startNewGame() {
