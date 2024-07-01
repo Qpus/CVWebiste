@@ -1,17 +1,15 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-:root{
-  --clr-primary:  hsl(48, 97%, 51%);
-  --clr-text:	hsl(210, 3%, 16%);
+:root {
+  --clr-primary: hsl(48, 97%, 51%);
+  --clr-text: hsl(210, 3%, 16%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-profileImg: hsl(231, 18%, 21%);
-  --clr-textNav: 	hsl(235, 7%, 68%);
+  --clr-textNav: hsl(235, 7%, 68%);
   --clr-iconNav: hsl(233, 7%, 47%);
   --clr-sectionBg: hsl(218, 67%, 98%);
-
 }
-
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -24,7 +22,7 @@ a {
 }
 
 a:hover {
-  color:  var(--clr-text);
+  color: var(--clr-text);
   text-decoration: none;
 }
 
@@ -36,7 +34,7 @@ h5,
 h6 {
   font-family: "Raleway", sans-serif;
 }
-.data-size{
+.data-size {
   z-index: 9997;
   width: 450px;
   height: 250px;
@@ -164,7 +162,7 @@ h6 {
   list-style: none;
 }
 
-.nav-menu>ul>li {
+.nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
 }
@@ -190,7 +188,7 @@ h6 {
 .nav-menu a:hover,
 .nav-menu .active,
 .nav-menu .active:focus,
-.nav-menu li:hover>a {
+.nav-menu li:hover > a {
   text-decoration: none;
   color: var(--clr-white);
 }
@@ -198,8 +196,8 @@ h6 {
 .nav-menu a:hover i,
 .nav-menu .active i,
 .nav-menu .active:focus i,
-.nav-menu li:hover>a i {
-  color:var(--clr-primary);
+.nav-menu li:hover > a i {
+  color: var(--clr-primary);
 }
 
 /* Mobile Navigation */

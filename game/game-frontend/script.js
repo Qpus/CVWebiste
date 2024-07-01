@@ -1,108 +1,71 @@
-let score = 0;
-let timeLeft = 10;
-let timer;
+document.addEventListener("DOMContentLoaded", () => {
+  const startBtn = document.getElementById("startBtn");
+  const clickBtn = document.getElementById("clickBtn");
+  const nameInput = document.getElementById("name");
+  const gameArea = document.getElementById("gameArea");
+  const timeLeft = document.getElementById("timeLeft");
+  const scoreDisplay = document.getElementById("score");
+  const scoresList = document.getElementById("scoresList");
 
-const clickButton = document.getElementById("click-button");
-const scoreDisplay = document.getElementById("score");
-const timeDisplay = document.getElementById("time");
-const bestScoresList = document.getElementById("best-scores");
-const newGameButton = document.getElementById("new-game-button");
-const playerNameInput = document.getElementById("player-name");
+  let score = 0;
+  let timer;
 
-playerNameInput.addEventListener("input", () => {
-  clickButton.disabled = !playerNameInput.value.trim();
-});
+  startBtn.addEventListener("click", () => {
+    const playerName = nameInput.value.trim();
+    if (!playerName) {
+      alert("Please enter your name");
+      return;
+    }
 
-clickButton.addEventListener("click", () => {
-  if (timeLeft === 10 && !timer) {
-    startGame();
-  }
-  if (timeLeft > 0) {
+    score = 0;
+    scoreDisplay.textContent = score;
+    gameArea.style.display = "block";
+    nameInput.style.display = "none";
+    startBtn.style.display = "none";
+
+    let time = 10;
+    timeLeft.textContent = time;
+    timer = setInterval(() => {
+      time--;
+      timeLeft.textContent = time;
+      if (time === 0) {
+        clearInterval(timer);
+        gameArea.style.display = "none";
+        submitScore(playerName, score);
+        nameInput.style.display = "block";
+        startBtn.style.display = "block";
+        fetchScores();
+      }
+    }, 1000);
+  });
+
+  clickBtn.addEventListener("click", () => {
     score++;
     scoreDisplay.textContent = score;
+  });
+
+  function submitScore(name, score) {
+    fetch("http://44.211.159.136:3000/submit-score", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, score }),
+    });
   }
-});
 
-newGameButton.addEventListener("click", startNewGame);
-
-function startGame() {
-  timer = setInterval(() => {
-    if (timeLeft > 0) {
-      timeLeft--;
-      timeDisplay.textContent = timeLeft;
-    } else {
-      clearInterval(timer);
-      timer = null; // Reset timer variable
-      const playerName = playerNameInput.value.trim();
-      if (playerName) {
-        saveScore(playerName, score);
-        alert(`Game over! ${playerName}, your score is ${score}`);
-      } else {
-        alert("Please enter your name to save your score.");
-      }
-      newGameButton.style.visibility = "visible";
-      clickButton.disabled = true; // Disable click button after game ends
-    }
-  }, 1000);
-}
-
-function saveScore(name, score) {
-  fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/save-score", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, score }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Score saved:", data);
-      fetchScores();
-    })
-    .catch((error) => {
-      console.error("Error saving score:", error);
-    });
-}
-
-function fetchScores() {
-  fetch("http://ec2-174-129-96-21.compute-1.amazonaws.com:3000/get-scores")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      bestScoresList.innerHTML = "";
-      data.forEach((scoreItem, index) => {
-        const li = document.createElement("li");
-        li.textContent = `#${index + 1}: ${scoreItem.name} - ${
-          scoreItem.score
-        } - ${scoreItem.date}`;
-        bestScoresList.appendChild(li);
+  function fetchScores() {
+    fetch("http://44.211.159.136:3000/get-scores")
+      .then((response) => response.json())
+      .then((data) => {
+        scoresList.innerHTML = "";
+        data.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = `${item.name}: ${item.score}`;
+          scoresList.appendChild(li);
+        });
       });
-    })
-    .catch((error) => {
-      console.error("Error fetching scores:", error);
-    });
-}
+  }
 
-function startNewGame() {
-  score = 0;
-  timeLeft = 10;
-  clearInterval(timer); // Clear any existing timer
-  timer = null;
-  scoreDisplay.textContent = score;
-  timeDisplay.textContent = timeLeft;
-  clickButton.disabled = true;
-  playerNameInput.value = "";
-  newGameButton.style.visibility = "hidden";
   fetchScores();
-}
-
-fetchScores();
+});
