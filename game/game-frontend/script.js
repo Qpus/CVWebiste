@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function submitScore(name, score) {
-    fetch("http://54.82.204.172:3000/submit-score", {
+    fetch("https://54.82.204.172:3000/submit-score", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function fetchScores() {
-    fetch("http://54.82.204.172:3000/get-scores")
+    fetch("https://54.82.204.172:3000/get-scores")
       .then((response) => response.json())
       .then((data) => {
         scoresList.innerHTML = "";
