@@ -1,5 +1,5 @@
-.github/
-.vscode/
+.github
+.vscode
 test.html
 game-backend
-data/
+data
